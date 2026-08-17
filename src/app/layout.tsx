@@ -42,7 +42,7 @@ html {
         `}</style>
       </head>
       <body className={`${montserrat.variable} ${openSans.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="lght" enableSystem disableTransitionOnChange={false}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
       </body>

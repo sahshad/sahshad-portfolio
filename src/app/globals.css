@@ -269,3 +269,50 @@ html {
 }
 
 
+/* new */
+
+@keyframes move-left {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes move-right {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.card-animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-animated-border .top-line,
+.card-animated-border .bottom-line {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #6366f1; /* Default color */
+  opacity: 0;
+}
+
+/* Animate leftward from top-right */
+.card-animated-border:hover .top-line {
+  top: 0;
+  animation: move-left 2s linear infinite;
+  opacity: 1;
+}
+
+/* Animate rightward from bottom-left */
+.card-animated-border:hover .bottom-line {
+  bottom: 0;
+  animation: move-right 2s linear infinite;
+  opacity: 1;
+}

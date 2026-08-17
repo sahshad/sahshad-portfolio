@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Cpu, Download, GitBranch, GraduationCap, Mail, Rocket } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+import { TypingText } from "../animate-ui/text/typing";
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -28,15 +28,15 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section ref={heroRef} className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-200">
           <p className="text-sm uppercase font-medium tracking-wide text-accent">Welcome to my portfolio</p>
 
           <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight">
-            Hi, I'm{" "}
+            Hi, I&apos;m{" "}
             <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text animate-gradient">
-              Muhammed Sahshad
+              <TypingText text={"Muhammed Sahshad"}/>
             </span>
           </h1>
 
@@ -56,7 +56,7 @@ export function HeroSection() {
               className="hover:bg-black/5 group rounded-full bg-black/4 dark:bg-white/7 backdrop-blur-3xl border border-white/10 text-primary hover:scale-105 transition-all duration-300 hover:shadow-lg"
             >
               <Link href="/projects">
-                View My Work
+              View My Work
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -84,13 +84,13 @@ export function HeroSection() {
 
         <div className="w-full lg:w-1/2 relative animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-400">
           <div className="relative mx-auto w-72 sm:w-96 aspect-square rounded-3xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/10 to-accent/10 p-4 backdrop-blur-md group hover:shadow-2xl transition-all duration-500">
-            <Image
+            {/* <Image
               src="/developer-light.jpg"
               alt="Muhammed Sahshad"
               fill
               priority
               className="object-cover p-4 rounded-4xl transition-transform duration-500 group-hover:scale-105"
-            />
+            /> */}
             <div className="absolute -top-6 -left-6 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
             <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-primary/20 rounded-full blur-xl animate-pulse delay-1000"></div>
           </div>
