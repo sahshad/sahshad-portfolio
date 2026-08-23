@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Cpu, Download, GitBranch, GraduationCap, Mail, Rocket } from "lucide-react";
-import Link from "next/link";
+import { useEffect, useRef, type MouseEvent } from "react";
+import { ArrowRight, BadgeCheck, Code, Cpu, Download, FolderGit, GitBranch, Globe, GraduationCap, Mail, Rocket, Users } from "lucide-react";
 import { TypingText } from "../animate-ui/text/typing";
+import Image from "next/image";
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
+
+  const handleScroll = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,8 +32,8 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 ">
-      <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
+      <section ref={heroRef} id="home" className="relative pt-16 md:pt-28 px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-200">
           <p className="text-sm uppercase font-medium tracking-wide text-accent">Welcome to my portfolio</p>
 
@@ -50,95 +54,115 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-            <Button
-              asChild
-              size="lg"
-              className="hover:bg-black/5 group rounded-full bg-black/4 dark:bg-white/7 backdrop-blur-3xl border border-white/10 text-primary hover:scale-105 transition-all duration-300 hover:shadow-lg"
+            <a
+              href="#projects"
+              onClick={(e) => handleScroll(e, "projects")}
+              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
-              <Link href="/projects">
               View My Work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-
-            <Button
-              asChild
-              size="lg"
-              className="hover:bg-black/5 group rounded-full bg-black/4 dark:bg-white/7 backdrop-blur-3xl border border-white/10 text-primary hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+            {/* <a
+              href="#contact"
+              onClick={(e) => handleScroll(e, "contact")}
+              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
-              <Link href="/contact">
-                <Mail className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                Get In Touch
-              </Link>
-            </Button>
-
-            <Button
-              size="lg"
-              className="hover:bg-black/5 group rounded-full bg-black/4 dark:bg-white/7 backdrop-blur-3xl border border-white/10 text-primary hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              Get In Touch
+              <Mail className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+            </a> */}
+            <a
+              href="/cv.pdf"
+              download
+              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
-              <Download className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
               Download CV
-            </Button>
+              <Download className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+            </a>
           </div>
         </div>
 
         <div className="w-full lg:w-1/2 relative animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-400">
-          <div className="relative mx-auto w-72 sm:w-96 aspect-square rounded-3xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/10 to-accent/10 p-4 backdrop-blur-md group hover:shadow-2xl transition-all duration-500">
-            {/* <Image
-              src="/developer-light.jpg"
+          <div className="relative mx-auto w-84 sm:w-[420px] aspect-square">
+            <Image
+              src="/ChatGPT Image Aug 23, 2026, 09_11_49 PM.png"
               alt="Muhammed Sahshad"
               fill
               priority
-              className="object-cover p-4 rounded-4xl transition-transform duration-500 group-hover:scale-105"
-            /> */}
-            <div className="absolute -top-6 -left-6 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-primary/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+              className="object-cover rounded-3xl"
+            />
           </div>
         </div>
       </div>
 
-      <div className="mt-20 animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-600">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6">
+      <div className="mt-5 sm:mt-10 animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-600">
+        <div className="mx-auto sm:px-12">
+          <div className="relative">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-proximity pt-4 pb-5">
             {[
               {
-                label: "Projects Completed",
+                label: "Projects",
                 value: "15+",
                 icon: <Rocket className="h-6 w-6 text-primary" />,
               },
               {
-                label: "Years of Coding Experience",
+                label: "Coding Experience",
                 value: "1+",
                 icon: <Code className="h-6 w-6 text-green-500" />,
               },
               {
-                label: "Technologies Mastered",
+                label: "Technologies",
                 value: "12+",
                 icon: <Cpu className="h-6 w-6 text-blue-500" />,
               },
               {
-                label: "GitHub Contributions",
+                label: "GitHub Commits",
                 value: "500+",
                 icon: <GitBranch className="h-6 w-6 text-purple-500" />,
               },
               {
-                label: "Hours Spent Learning",
+                label: "Learning Hours",
                 value: "2000+",
                 icon: <GraduationCap className="h-6 w-6 text-yellow-500" />,
+              },
+              {
+                label: "Client Projects",
+                value: "10+",
+                icon: <Users className="h-6 w-6 text-cyan-500" />,
+              },
+              {
+                label: "Countries",
+                value: "5+",
+                icon: <Globe className="h-6 w-6 text-indigo-500" />,
+              },
+              {
+                label: "Open Source",
+                value: "20+",
+                icon: <FolderGit className="h-6 w-6 text-orange-500" />,
+              },
+              {
+                label: "Certifications",
+                value: "6+",
+                icon: <BadgeCheck className="h-6 w-6 text-emerald-500" />,
               },
             ].map((stat, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 p-3 bg-black/2 dark:bg-white/7 backdrop-blur-3xl border border-white/10 dark:border-white/10 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="group relative overflow-hidden snap-start shrink-0 flex items-center gap-4 p-5 w-[170px] h-[75px] bg-black/2 dark:bg-white/7 backdrop-blur-3xl border border-white/10 dark:border-white/10 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="flex-shrink-0">{stat.icon}</div>
+                <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-500 ease-out group-hover:w-full" />
+                <div className="flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3">
+                  {stat.icon}
+                </div>
                 <div>
-                  <div className="text-xl font-bold text-primary">{stat.value}</div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  <div className="font-bold text-primary text-xl sm:text-2xl origin-left transition-transform duration-300 group-hover:scale-105">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground truncate">{stat.label}</div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </section>

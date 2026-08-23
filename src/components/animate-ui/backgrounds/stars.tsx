@@ -111,7 +111,7 @@ function StarsBackground({
     <div
       data-slot="stars-background"
       className={cn(
-        'relative size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#262626_0%,_#000_100%)]',
+        'relative size-full overflow-clip bg-[radial-gradient(ellipse_at_bottom,_#000_0%,_#000_100%)]',
         className,
       )}
       onMouseMove={handleMouseMove}
@@ -119,34 +119,46 @@ function StarsBackground({
     >
       <motion.div
         style={{ x: springX, y: springY }}
-        className={cn({ 'pointer-events-none': !pointerEvents })}
+        className="absolute inset-0 pointer-events-none"
       >
-        <StarLayer
-          count={1000}
-          size={1}
-          transition={{ repeat: Infinity, duration: speed, ease: 'linear' }}
-          starColor={starColor}
-        />
-        <StarLayer
-          count={400}
-          size={2}
-          transition={{
-            repeat: Infinity,
-            duration: speed * 2,
-            ease: 'linear',
-          }}
-          starColor={starColor}
-        />
-        <StarLayer
-          count={200}
-          size={3}
-          transition={{
-            repeat: Infinity,
-            duration: speed * 3,
-            ease: 'linear',
-          }}
-          starColor={starColor}
-        />
+        {[0, 2000, 4000, 6000, 8000, 10000].map((top) => (
+          <StarLayer
+            key={`s1-${top}`}
+            style={{ top: `${top}px` }}
+            count={300}
+            size={1}
+            transition={{ repeat: Infinity, duration: speed, ease: 'linear' }}
+            starColor={starColor}
+          />
+        ))}
+        {[0, 2000, 4000, 6000, 8000, 10000].map((top) => (
+          <StarLayer
+            key={`s2-${top}`}
+            style={{ top: `${top}px` }}
+            count={200}
+            size={2}
+            transition={{
+              repeat: Infinity,
+              duration: speed * 2,
+              ease: 'linear',
+            }}
+            starColor={starColor}
+          />
+        ))}
+        {[0, 2000, 4000, 6000, 8000, 10000].map((top) => (
+          <StarLayer
+            key={`s3-${top}`}
+            style={{ top: `${top}px` }}
+            count={100}
+            size={3}
+            transition={{
+              repeat: Infinity,
+              duration: speed * 3,
+              ease: 'linear',
+            }}
+            starColor={starColor}
+          />
+        ))}
       </motion.div>
       {children}
     </div>

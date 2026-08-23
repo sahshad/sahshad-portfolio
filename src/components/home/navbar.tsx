@@ -1,22 +1,43 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, User, FolderGit, Mail, Sun, Moon, SunMoon } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { useScrollSpy, SECTIONS } from "@/lib/hooks/use-scroll-spy";
+import Dock from "@/components/ui/Dock";
+import { useTheme } from "next-themes";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
+  const active = useScrollSpy();
 
-  const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
+  const navItems = SECTIONS.map((section) => ({
+    href: section.href,
+    label: section.id.charAt(0).toUpperCase() + section.id.slice(1),
+    id: section.id,
+  }));
+
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const themeIcon = !mounted ? (
+    <SunMoon size={18} />
+  ) : theme === "dark" ? (
+    <Moon size={18} />
+  ) : (
+    <Sun size={18} />
+  );
+
+  const dockItems = [
+    { icon: <Home size={18} />, label: "Home", onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }) },
+    { icon: <User size={18} />, label: "About", onClick: () => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" }) },
+    { icon: <FolderGit size={18} />, label: "Projects", onClick: () => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }) },
+    { icon: <Mail size={18} />, label: "Contact", onClick: () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }) },
+    { icon: themeIcon, label: "Theme", onClick: () => setTheme(theme === "dark" ? "light" : "dark") },
   ];
 
   useEffect(() => {
@@ -28,12 +49,24 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    const el = document.getElementById(id);
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
+    <>
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 hidden md:block ${
         isScrolled
-          ? "bg-white/40 dark:bg-black/30 backdrop-blur-xl shadow-md border-b border-white/20 dark:border-white/10"
-          : "bg-white/10 dark:bg-black/10 backdrop-blur-md"
+          ? "bg-background/40 backdrop-blur-xl shadow-md border-b border-border"
+          : "bg-background/10 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,9 +92,10 @@ export function Navbar() {
 
             <Link
               href="/"
-              className="text-xl font-semibold text-primary transition-transform hover:scale-105 hidden md:block"
+              onClick={(e) => handleNavClick(e, "home")}
+              className="text-xl font-semibold text-primary transition-transform hover:scale-105"
             >
-              Portfolio
+              Sahshad
             </Link>
           </div>
 
@@ -70,14 +104,15 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.id)}
                 className={`text-sm font-medium relative group transition-colors duration-300 ${
-                  pathname === item.href ? "text-primary" : "text-foreground hover:text-primary"
+                  active === item.id ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
                 {item.label}
                 <span
                   className={`absolute left-0 -bottom-0.5 h-[2px] bg-gradient-to-r from-primary to-primary/60 transition-all duration-300 group-hover:w-full ${
-                    pathname === item.href ? "w-full" : "w-0"
+                    active === item.id ? "w-full" : "w-0"
                   }`}
                 />
               </Link>
@@ -96,20 +131,20 @@ export function Navbar() {
           isOpen ? "w-55 opacity-100" : "w-0 opacity-0"
         } overflow-hidden`}
       >
-        <div className="h-full w-55 bg-white/50 dark:bg-black/30 backdrop-blur-sm border-r border-white/20 dark:border-white/10 shadow-md py-4 px-4 space-y-2 transition-all duration-300">
-          {navItems.map((item, i) => (
+        <div className="h-full w-55 border-r border-border bg-background/50 backdrop-blur-sm shadow-md py-4 px-4 space-y-2 transition-all duration-300">
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => handleNavClick(e, item.id)}
               className={`block px-4 py-2 text-sm font-medium rounded-md transition-all relative group ${
-                pathname === item.href
+                active === item.id
                   ? "text-primary bg-primary/2 border-l-4 border-primary pl-3"
                   : "text-foreground hover:bg-white/20 dark:hover:bg-black/20"
               }`}
             >
               {item.label}
-              {pathname === item.href && (
+              {active === item.id && (
                 <span className="absolute inset-0 rounded-md blur-sm opacity-10 bg-primary -z-10" />
               )}
             </Link>
@@ -117,5 +152,12 @@ export function Navbar() {
         </div>
       </div>
     </nav>
+
+      <div className="fixed inset-x-0 bottom-0 z-50 flex justify-center pb-2 md:hidden pointer-events-none">
+        <div className="pointer-events-auto">
+          <Dock items={dockItems} />
+        </div>
+      </div>
+    </>
   );
 }
