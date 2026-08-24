@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useId } from 'react';
+//@ts-expect-error
 import './GlassSurface.css';
 
 export interface GlassSurfaceProps {
