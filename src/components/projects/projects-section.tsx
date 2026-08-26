@@ -6,94 +6,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { BorderGlow } from "@/components/ui/border-glow";
 import { RotatingText } from "@/components/animate-ui/text/rotating";
-import {
-  Code2,
-  ExternalLink,
-  Folder,
-  Github,
-  ShoppingBag,
-  Terminal,
-  Container,
-  FileText,
-  Wallet,
-  Link2,
-  CloudSun,
-  UploadCloud,
-  Bot,
-  type LucideIcon,
-} from "lucide-react";
-
-interface Project {
-  icon: LucideIcon;
-  color: string;
-  title: string;
-  description: string;
-  technologies: string[];
-  github: string;
-  live: string;
-}
-
-const projects: Project[] = [
-  {
-    icon: Code2,
-    color: "#f97316",
-    title: "Task Manager App",
-    description:
-      "A full-stack task management application with user authentication, drag-and-drop boards, and real-time updates.",
-    technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.io"],
-    github: "https://github.com/sahshad",
-    live: "#",
-  },
-  {
-    icon: ShoppingBag,
-    color: "#3b82f6",
-    title: "E-Commerce Store",
-    description:
-      "A modern online store with product catalog, cart, payment integration, and an admin dashboard built with Next.js.",
-    technologies: ["Next.js", "Redux", "Stripe", "Tailwind", "TypeScript"],
-    github: "https://github.com/sahshad",
-    live: "#",
-  },
-  {
-    icon: Terminal,
-    color: "#22c55e",
-    title: "REST API Service",
-    description:
-      "A scalable REST API with repository architecture, JWT authentication, rate limiting, and comprehensive tests.",
-    technologies: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "Jest"],
-    github: "https://github.com/sahshad",
-    live: "#",
-  },
-  {
-    icon: Container,
-    color: "#a855f7",
-    title: "DevOps Pipeline",
-    description:
-      "Automated CI/CD pipeline that builds, tests, and deploys containers to AWS EC2 with zero-downtime rollouts.",
-    technologies: ["Docker", "GitHub Actions", "AWS EC2", "Nginx"],
-    github: "https://github.com/sahshad",
-    live: "#",
-  },
-  {
-    icon: Folder,
-    color: "#06b6d4",
-    title: "Portfolio Website",
-    description:
-      "A personal portfolio with animated UI components, dark mode, and a fully responsive layout built in Next.js.",
-    technologies: ["Next.js", "Tailwind", "Motion", "ShadCN"],
-    github: "https://github.com/sahshad",
-    live: "/",
-  },
-  {
-    icon: Code2,
-    color: "#ef4444",
-    title: "Chat Application",
-    description: "A real-time chat application with rooms, direct messages, typing indicators, and message history.",
-    technologies: ["React", "Socket.io", "Node.js", "MongoDB"],
-    github: "https://github.com/sahshad",
-    live: "#",
-  },
-];
+import { ExternalLink, Github } from "lucide-react";
+import { projects } from "@/data/projects";
 
 export function ProjectsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -140,7 +54,7 @@ export function ProjectsSection() {
           onScroll={handleScroll}
           className="flex gap-6 overflow-x-auto overflow-y-hidden md:overflow-x-hidden md:overflow-y-auto lg:overflow-visible md:grid md:grid-cols-2 lg:grid-cols-3 snap-x snap-mandatory md:snap-none h-[320px] md:h-auto md:min-h-[540px] md:max-h-[720px] lg:max-h-none lg:min-h-0 px-1 md:px-6 scroll-px-1 md:scroll-px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.title}
               className="h-[300px] w-full shrink-0 snap-start md:h-auto md:w-auto md:min-w-0 md:snap-none"

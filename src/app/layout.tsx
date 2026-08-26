@@ -6,6 +6,7 @@ import { Playfair_Display } from "next/font/google";
 // @ts-expect-error
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { siteConfig } from "@/data/site-config";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Muhammed Sahshad",
+  title: `Portfolio - ${siteConfig.name}`,
   description: "Modern, personal portfolio showcasing skills and projects",
 };
 

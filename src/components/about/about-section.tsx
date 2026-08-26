@@ -5,133 +5,11 @@ import { AnimatePresence, motion, useScroll } from "motion/react";
 import { useTheme } from "next-themes";
 import { Reveal } from "@/components/ui/reveal";
 import { BorderGlow } from "@/components/ui/border-glow";
-import {
-  Atom,
-  Bird,
-  Boxes,
-  Braces,
-  Briefcase,
-  Bug,
-  Cloud,
-  CloudCog,
-  Code2,
-  CodeXml,
-  Coffee,
-  Container,
-  Database,
-  FileCode,
-  FileCode2,
-  FileJson,
-  GitBranch,
-  GitPullRequest,
-  GraduationCap,
-  Hammer,
-  Hexagon,
-  Mail,
-  MapPin,
-  Paintbrush,
-  Palette,
-  PenTool,
-  Rocket,
-  Route,
-  Search,
-  Server,
-  SquareCode,
-  Terminal,
-  Workflow,
-  Zap,
-} from "lucide-react";
-
-const timeline = [
-  {
-    icon: GraduationCap,
-    title: "Computer Science Degree",
-    org: "University",
-    period: "2022 - 2025",
-    description: "Graduated with a focus on software engineering and web technologies.",
-  },
-  {
-    icon: Briefcase,
-    title: "Freelance Web Developer",
-    org: "Self-employed",
-    period: "2023 - Present",
-    description: "Designing and shipping full-stack applications for clients around the world.",
-  },
-  {
-    icon: Rocket,
-    title: "Full-Stack Certification",
-    org: "Brocamp",
-    period: "2025",
-    description: "Intensive program covering the MERN stack and modern DevOps practices.",
-  },
-  {
-    icon: Code2,
-    title: "Open Source Contributor",
-    org: "GitHub",
-    period: "2024 - Present",
-    description: "Contributing to open-source projects and maintaining my own libraries.",
-  },
-];
-
-const skills = [
-  { icon: Atom, name: "React" },
-  { icon: Hexagon, name: "Next.js" },
-  { icon: Boxes, name: "Node.js" },
-  { icon: FileCode2, name: "TypeScript" },
-  { icon: Database, name: "MongoDB" },
-  { icon: Palette, name: "Tailwind" },
-  { icon: Container, name: "Docker" },
-  { icon: Cloud, name: "AWS" },
-  { icon: Braces, name: "Go" },
-  { icon: Zap, name: "Redis" },
-  { icon: Server, name: "Postgres" },
-  { icon: Coffee, name: "Java" },
-  { icon: FileJson, name: "JavaScript" },
-  { icon: CodeXml, name: "HTML" },
-  { icon: Paintbrush, name: "CSS" },
-  { icon: Route, name: "Express" },
-  { icon: Bird, name: "NestJS" },
-  { icon: SquareCode, name: "Python" },
-  { icon: FileCode, name: "C" },
-  { icon: Terminal, name: "Microservices" },
-  { icon: GitBranch, name: "Git" },
-  { icon: GitPullRequest, name: "CI/CD" },
-  { icon: Workflow, name: "Redux" },
-  { icon: CloudCog, name: "Linux" },
-];
-
-const approach = [
-  {
-    step: "01",
-    icon: Search,
-    title: "Understand",
-    description: "Start with the problem, the requirements, and the people using the product.",
-  },
-  {
-    step: "02",
-    icon: PenTool,
-    title: "Design",
-    description: "Turn ideas into simple, intuitive interfaces before jumping into implementation.",
-  },
-  {
-    step: "03",
-    icon: Hammer,
-    title: "Build",
-    description: "Write clean, reusable code, iterating quickly until the product feels right.",
-  },
-  {
-    step: "04",
-    icon: Bug,
-    title: "Test",
-    description: "Verify everything works, catch edge cases, and polish performance end to end.",
-  },
-  {
-    step: "05",
-    icon: Rocket,
-    title: "Ship",
-    description: "Deploy, monitor, and keep supporting the product in production.",
-  },
-];
+import { Briefcase, Mail, MapPin } from "lucide-react";
+import { timeline } from "@/data/timeline";
+import { techStack } from "@/data/tech-stack";
+import { approach } from "@/data/approach";
+import { siteConfig } from "@/data/site-config";
 
 const SPINNER_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
 
@@ -186,12 +64,12 @@ export function AboutSection() {
               </h2>
               <div className="mt-6 max-w-2xl space-y-4 text-[15px] sm:text-base text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a Full-Stack Developer from Kerala, India, focused on building modern web applications from idea
+                  I&apos;m a {siteConfig.role} from {siteConfig.location}, focused on building modern web applications from idea
                   to production. I work across the frontend, backend, and deployment — turning complex requirements into
                   fast, reliable, and intuitive products.
                 </p>
                 <p>
-                  My core stack is React, Next.js, Node.js, TypeScript, and MongoDB. But good software isn't just about
+                  My core stack is React, Next.js, Node.js, TypeScript, and MongoDB. But good software isn&apos;t just about
                   the technology behind it. I care about thoughtful design, responsive interfaces, performance, and the
                   small details that make a product genuinely enjoyable to use.
                 </p>
@@ -209,8 +87,8 @@ export function AboutSection() {
                   />
                 </div>
                 <div>
-                  <div className="font-semibold text-foreground text-sm">Muhammed Sahshad</div>
-                  <div className="text-xs text-muted-foreground">Full-Stack Developer</div>
+                  <div className="font-semibold text-foreground text-sm">{siteConfig.name}</div>
+                  <div className="text-xs text-muted-foreground">{siteConfig.role}</div>
                 </div>
               </div>
               <div className="mt-6 border-t border-border/60 pt-5 space-y-3.5 text-sm">
@@ -219,21 +97,21 @@ export function AboutSection() {
                     <MapPin className="h-4 w-4 text-primary" />
                     Location
                   </span>
-                  <span className="font-medium text-foreground">Kerala, India</span>
+                  <span className="font-medium text-foreground">{siteConfig.location}</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="inline-flex items-center gap-2 text-muted-foreground text-xs uppercase tracking-wide">
                     <Mail className="h-4 w-4 text-primary" />
                     Email
                   </span>
-                  <span className="font-medium text-foreground">sahshad.dev@gmail.com</span>
+                  <span className="font-medium text-foreground">{siteConfig.email}</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="inline-flex items-center gap-2 text-muted-foreground text-xs uppercase tracking-wide">
                     <Briefcase className="h-4 w-4 text-primary" />
                     Status
                   </span>
-                  <span className="font-medium text-foreground">Open for freelance</span>
+                  <span className="font-medium text-foreground">{siteConfig.status}</span>
                 </div>
               </div>
             </div>
@@ -423,7 +301,7 @@ export function AboutSection() {
               <div className="rounded-3xl mt-10">
                 <p className="text-accent font-medium tracking-wide uppercase text-sm mb-6 text-center sm:text-left">TECHNOLOGY I WORK WITH</p>
                 <div className="grid grid-cols-4 py-3 sm:grid-cols-6 gap-2 max-h-[270px] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                  {skills.map((skill) => (
+                  {techStack.map((skill) => (
                     <div
                       key={skill.name}
                       className="rounded-2xl border border-black/10 dark:border-white/15 bg-card p-4 flex flex-col items-center gap-2.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),inset_0_-10px_14px_-10px_rgba(0,0,0,0.16)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.32),inset_0_-10px_14px_-10px_rgba(0,0,0,0.85)] hover:border-primary/30 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9),inset_0_-10px_14px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),inset_0_-10px_14px_-10px_rgba(0,0,0,0.95)] transition-all duration-300"

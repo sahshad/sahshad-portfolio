@@ -1,18 +1,8 @@
 "use client";
 
 import { useState } from "react";
-
-const steps = [
-  { n: "01", title: "Reach Out", desc: "Send a message with your idea — a sentence is enough. No decks, no paperwork, just the spark." },
-  { n: "02", title: "Talk It Through", desc: "We'll map the goals, scope, and the fastest path that actually makes sense for you." },
-  { n: "03", title: "Build", desc: "I ship working software in tight loops, so you see real progress — not just promises." },
-];
-
-const offerings = [
-  "SaaS & Web Apps",
-  "APIs & Backend Systems",
-  "Real-time Applications",
-];
+import { contactSteps as steps, contactOfferings as offerings } from "@/data/contact";
+import { siteConfig } from "@/data/site-config";
 
 export function ContactSection() {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -110,7 +100,7 @@ export function ContactSection() {
             </ul>
             <div className="mt-7 mb-7 h-px w-40 bg-border/60"></div>
             <a
-              href="mailto:sahshad.dev@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
               Start a conversation
@@ -124,7 +114,7 @@ export function ContactSection() {
         {/* Mobile: centered CTA only */}
         <div className="mt-12 flex justify-center lg:hidden">
           <a
-            href="mailto:sahshad.dev@gmail.com"
+            href={`mailto:${siteConfig.email}`}
             className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
           >
             Start a conversation

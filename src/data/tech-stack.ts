@@ -1,0 +1,60 @@
+import {
+  Atom,
+  Hexagon,
+  Boxes,
+  FileCode2,
+  Database,
+  Palette,
+  Container,
+  Cloud,
+  Braces,
+  Zap,
+  Server,
+  Coffee,
+  FileJson,
+  CodeXml,
+  Paintbrush,
+  Route,
+  Bird,
+  SquareCode,
+  FileCode,
+  Terminal,
+  GitBranch,
+  GitPullRequest,
+  Workflow,
+  CloudCog,
+  type LucideIcon,
+} from "lucide-react";
+
+export interface TechStackItem {
+  icon: LucideIcon;
+  name: string;
+}
+
+// Edit this list to change the "Technology I Work With" grid in the About section.
+export const techStack: TechStackItem[] = [
+  { icon: Atom, name: "React" },
+  { icon: Hexagon, name: "Next.js" },
+  { icon: Boxes, name: "Node.js" },
+  { icon: FileCode2, name: "TypeScript" },
+  { icon: Database, name: "MongoDB" },
+  { icon: Palette, name: "Tailwind" },
+  { icon: Container, name: "Docker" },
+  { icon: Cloud, name: "AWS" },
+  { icon: Braces, name: "Go" },
+  { icon: Zap, name: "Redis" },
+  { icon: Server, name: "Postgres" },
+  { icon: Coffee, name: "Java" },
+  { icon: FileJson, name: "JavaScript" },
+  { icon: CodeXml, name: "HTML" },
+  { icon: Paintbrush, name: "CSS" },
+  { icon: Route, name: "Express" },
+  { icon: Bird, name: "NestJS" },
+  { icon: SquareCode, name: "Python" },
+  { icon: FileCode, name: "C" },
+  { icon: Terminal, name: "Microservices" },
+  { icon: GitBranch, name: "Git" },
+  { icon: GitPullRequest, name: "CI/CD" },
+  { icon: Workflow, name: "Redux" },
+  { icon: CloudCog, name: "Linux" },
+];

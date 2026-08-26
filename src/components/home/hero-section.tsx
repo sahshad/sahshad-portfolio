@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef, type MouseEvent } from "react";
-import { ArrowRight, BadgeCheck, Code, Cpu, Download, FolderGit, GitBranch, Globe, GraduationCap, Mail, Rocket, Users } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { TypingText } from "../animate-ui/text/typing";
 import Image from "next/image";
+import { heroStats } from "@/data/hero-stats";
+import { siteConfig } from "@/data/site-config";
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -40,12 +42,12 @@ export function HeroSection() {
           <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight">
             Hi, I&apos;m{" "}
             <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text animate-gradient">
-              <TypingText text={"Muhammed Sahshad"}/>
+              <TypingText text={siteConfig.name}/>
             </span>
           </h1>
 
           <h2 className="text-xl sm:text-2xl text-muted-foreground font-semibold">
-            Full-Stack Developer & UI/UX Designer
+            {siteConfig.roleLong}
           </h2>
 
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -71,7 +73,7 @@ export function HeroSection() {
               <Mail className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
             </a> */}
             <a
-              href="/cv.pdf"
+              href={siteConfig.cvUrl}
               download
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
@@ -103,7 +105,7 @@ export function HeroSection() {
 
             <Image
               src="/image_light.png"
-              alt="Muhammed Sahshad"
+              alt={siteConfig.name}
               width={1230}
               height={1278}
               priority
@@ -122,60 +124,14 @@ export function HeroSection() {
         <div className="mx-auto sm:px-12">
           <div className="relative">
           <div className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-proximity pt-4 pb-5">
-            {[
-              {
-                label: "Projects",
-                value: "15+",
-                icon: <Rocket className="h-6 w-6 text-primary" />,
-              },
-              {
-                label: "Coding Experience",
-                value: "1+",
-                icon: <Code className="h-6 w-6 text-green-500" />,
-              },
-              {
-                label: "Technologies",
-                value: "12+",
-                icon: <Cpu className="h-6 w-6 text-blue-500" />,
-              },
-              {
-                label: "GitHub Commits",
-                value: "500+",
-                icon: <GitBranch className="h-6 w-6 text-purple-500" />,
-              },
-              {
-                label: "Learning Hours",
-                value: "2000+",
-                icon: <GraduationCap className="h-6 w-6 text-yellow-500" />,
-              },
-              {
-                label: "Client Projects",
-                value: "10+",
-                icon: <Users className="h-6 w-6 text-cyan-500" />,
-              },
-              {
-                label: "Countries",
-                value: "5+",
-                icon: <Globe className="h-6 w-6 text-indigo-500" />,
-              },
-              {
-                label: "Open Source",
-                value: "20+",
-                icon: <FolderGit className="h-6 w-6 text-orange-500" />,
-              },
-              {
-                label: "Certifications",
-                value: "6+",
-                icon: <BadgeCheck className="h-6 w-6 text-emerald-500" />,
-              },
-            ].map((stat, index) => (
+            {heroStats.map((stat) => (
               <div
-                key={index}
+                key={stat.label}
                 className="group relative overflow-hidden snap-start shrink-0 flex items-center gap-4 p-5 w-[170px] h-[75px] bg-black/2 dark:bg-white/7 backdrop-blur-3xl border border-white/10 dark:border-white/10 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),inset_0_-10px_14px_-10px_rgba(0,0,0,0.16)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.32),inset_0_-10px_14px_-10px_rgba(0,0,0,0.85)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9),inset_0_-10px_14px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),inset_0_-10px_14px_-10px_rgba(0,0,0,0.95)] hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-500 ease-out group-hover:w-full" />
                 <div className="flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3">
-                  {stat.icon}
+                  <stat.icon className={`h-6 w-6 ${stat.colorClass}`} />
                 </div>
                 <div>
                   <div className="font-bold text-primary text-xl sm:text-2xl origin-left transition-transform duration-300 group-hover:scale-105">

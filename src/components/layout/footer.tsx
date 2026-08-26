@@ -1,12 +1,6 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail, Twitter, MapPin } from "lucide-react";
-
-const socials = [
-  { href: "https://github.com/sahshad", icon: Github, label: "GitHub" },
-  { href: "https://linkedin.com/in/sahshad", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://twitter.com/sahshad", icon: Twitter, label: "X" },
-  { href: "mailto:sahshad.dev@gmail.com", icon: Mail, label: "Email" },
-];
+import { socials } from "@/data/socials";
+import { siteConfig } from "@/data/site-config";
 
 export function Footer() {
   return (
@@ -22,7 +16,7 @@ export function Footer() {
               Sahshad
             </Link>
             <p className="mt-2 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-              Full-Stack Developer
+              {siteConfig.role}
             </p>
 
             {/* Socials */}

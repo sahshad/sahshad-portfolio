@@ -10,7 +10,7 @@ import {
   AnimatePresence
 } from 'motion/react';
 import React, { Children, cloneElement, useEffect, useMemo, useRef, useState } from 'react';
-import GlassSurface from '@/components/GlassSurface';
+import GlassSurface from '@/components/ui/GlassSurface';
 
 import './Dock.css';
 
