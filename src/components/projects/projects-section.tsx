@@ -138,7 +138,7 @@ export function ProjectsSection() {
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex gap-6 overflow-x-auto overflow-y-hidden md:overflow-x-hidden md:overflow-y-auto md:grid md:grid-cols-2 lg:grid-cols-3 snap-x snap-mandatory md:snap-none h-[320px] md:min-h-[540px] md:max-h-[720px] px-1 md:px-6 scroll-px-1 md:scroll-px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-6 overflow-x-auto overflow-y-hidden md:overflow-x-hidden md:overflow-y-auto lg:overflow-visible md:grid md:grid-cols-2 lg:grid-cols-3 snap-x snap-mandatory md:snap-none h-[320px] md:h-auto md:min-h-[540px] md:max-h-[720px] lg:max-h-none lg:min-h-0 px-1 md:px-6 scroll-px-1 md:scroll-px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {projects.map((project, index) => (
             <div

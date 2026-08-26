@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);            /* Pure white */
+  --background: #F8F7F3;                 /* Warm off-white */
   --foreground: oklch(0 0 0);            /* Pure black */
   --card: oklch(0.98 0 0);               /* Very light gray */
   --card-foreground: oklch(0 0 0);       /* Black */
@@ -49,9 +49,9 @@
 }
 
 .dark {
-  --background: oklch(0 0 0);            /* Black */
+  --background: #0A0A0A;                 /* Matte black — neutral, flat, no warm/blue tint */
   --foreground: oklch(1 0 0);            /* White */
-  --card: oklch(0.1 0 0);                /* Dark gray */
+  --card: oklch(0.17 0 0);               /* Dark gray — kept clearly lighter than the near-black page so cards read as raised panels */
   --card-foreground: oklch(1 0 0);       /* White */
   --popover: oklch(0 0 0);               /* Black */
   --popover-foreground: oklch(1 0 0);    /* White */
@@ -199,6 +199,16 @@
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Hard on/off blink, like a real terminal cursor — not a smooth fade */
+@keyframes terminal-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.animate-terminal-blink {
+  animation: terminal-blink 1s step-end infinite;
 }
 
 html {

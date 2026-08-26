@@ -100,7 +100,7 @@ export function SkillsHighlight() {
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory md:snap-proximity h-[320px] md:h-auto py-0 md:py-8 px-1 md:px-6 scroll-px-1 md:scroll-px-0"
+          className="flex gap-6 overflow-x-auto overflow-y-hidden md:overflow-y-visible scroll-smooth scrollbar-hide snap-x snap-mandatory md:snap-proximity h-[320px] md:h-auto py-0 md:py-8 px-1 md:px-6 scroll-px-1 md:scroll-px-0"
         >
           {skills.map((skill, index) => (
             <BorderGlow

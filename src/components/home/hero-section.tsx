@@ -82,13 +82,37 @@ export function HeroSection() {
         </div>
 
         <div className="w-full lg:w-1/2 relative animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-400">
-          <div className="relative mx-auto w-84 sm:w-[420px] aspect-square">
+          <div className="relative mx-auto w-72 sm:w-96 md:w-[420px]">
+            {/* Ambient bleed — soft, wide, gives the dark hair/shirt something to separate from */}
+            <div
+              aria-hidden
+              className="absolute inset-[6%] -z-20 translate-y-[5%] rounded-full bg-foreground/[0.14] blur-2xl"
+            />
+
+            {/* The stage the subject stands in front of */}
+            <div
+              aria-hidden
+              className="absolute inset-[10%] -z-10 translate-y-[5%] rounded-full bg-gradient-to-b from-foreground/[0.16] to-transparent ring-1 ring-foreground/[0.25]"
+            />
+
+            {/* Grounding shadow — a contact shadow so the cutout feels planted, not floating */}
+            <div
+              aria-hidden
+              className="absolute bottom-[2%] left-1/2 -z-10 h-5 w-1/2 -translate-x-1/2 rounded-full bg-foreground/25 blur-lg"
+            />
+
             <Image
-              src="/ChatGPT Image Aug 23, 2026, 09_11_49 PM.png"
+              src="/image_light.png"
               alt="Muhammed Sahshad"
-              fill
+              width={1230}
+              height={1278}
               priority
-              className="object-cover rounded-3xl"
+              sizes="(min-width: 768px) 420px, (min-width: 640px) 384px, 288px"
+              className="relative z-10 h-auto w-full object-contain"
+              style={{
+                maskImage: "linear-gradient(to bottom, black 97%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 97%, transparent 100%)",
+              }}
             />
           </div>
         </div>
@@ -147,7 +171,7 @@ export function HeroSection() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden snap-start shrink-0 flex items-center gap-4 p-5 w-[170px] h-[75px] bg-black/2 dark:bg-white/7 backdrop-blur-3xl border border-white/10 dark:border-white/10 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group relative overflow-hidden snap-start shrink-0 flex items-center gap-4 p-5 w-[170px] h-[75px] bg-black/2 dark:bg-white/7 backdrop-blur-3xl border border-white/10 dark:border-white/10 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),inset_0_-10px_14px_-10px_rgba(0,0,0,0.16)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.32),inset_0_-10px_14px_-10px_rgba(0,0,0,0.85)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9),inset_0_-10px_14px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),inset_0_-10px_14px_-10px_rgba(0,0,0,0.95)] hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-500 ease-out group-hover:w-full" />
                 <div className="flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3">

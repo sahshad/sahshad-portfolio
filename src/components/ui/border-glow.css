@@ -16,9 +16,28 @@
   background: var(--card-bg, var(--card));
   overflow: visible;
   box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 1px 2px,
-    rgba(0, 0, 0, 0.05) 0px 2px 4px,
-    rgba(0, 0, 0, 0.05) 0px 4px 8px;
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    rgba(0, 0, 0, 0.1) 0px 1px 2px,
+    rgba(0, 0, 0, 0.12) 0px 4px 8px,
+    rgba(0, 0, 0, 0.16) 0px 12px 24px -8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Only lift on hover for devices that actually have hover (mouse/trackpad) —
+   touchscreens fire :hover on tap and get stuck "popped up" until the next tap
+   elsewhere, which reads as a glitch rather than an interaction. The min-width
+   is a belt-and-suspenders check: hover/pointer reflect the primary input, so
+   a touchscreen laptop can still report hover:hover — the width guard keeps it
+   off on small/mobile screens regardless of what the device claims. */
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .border-glow-card:hover {
+    transform: translate3d(0, -3px, 0.01px);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.14) 0px 2px 4px,
+      rgba(0, 0, 0, 0.18) 0px 8px 16px,
+      rgba(0, 0, 0, 0.22) 0px 20px 32px -10px;
+  }
 }
 
 .border-glow-card::before,
@@ -114,6 +133,12 @@
    Light-mode override (separate, additive)
    ============================================ */
 :root:not(.dark) .border-glow-card {
+  /* Same idea as the dark-mode top sheen, but a white-only fade is invisible
+     here since the light card is already near-white (oklch 0.98). Instead
+     brighten the very top edge AND tint the bottom faintly darker, so the
+     card visibly shades top-to-bottom like it's lit from above. */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.04) 100%), var(--card-bg, var(--card));
+
   --gradient-one: radial-gradient(at 80% 55%, #2a2a2a 0px, transparent 50%) !important;
   --gradient-two: radial-gradient(at 69% 34%, #7c3aed 0px, transparent 50%) !important;
   --gradient-three: radial-gradient(at 8% 6%, #ec4899 0px, transparent 50%) !important;
@@ -130,6 +155,34 @@
   --glow-color-30: hsl(0 0% 20% / 18%) !important;
   --glow-color-20: hsl(0 0% 20% / 12%) !important;
   --glow-color-10: hsl(0 0% 20% / 6%) !important;
+}
+
+/* ============================================
+   Dark-mode override — a black drop-shadow is invisible on a
+   near-black page, so elevation instead comes from a lifted top
+   highlight plus a soft ambient light halo around the card.
+   ============================================ */
+.dark .border-glow-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0) 60%), var(--card-bg, var(--card));
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 10px 20px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(255, 255, 255, 0.07);
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .dark .border-glow-card:hover {
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 2px 4px rgba(0, 0, 0, 0.55),
+      0 18px 36px rgba(0, 0, 0, 0.5),
+      0 0 56px rgba(255, 255, 255, 0.12);
+  }
 }
 
 :root:not(.dark) .border-glow-card > .edge-light {

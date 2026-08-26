@@ -93,9 +93,14 @@ export function Navbar() {
             <Link
               href="/"
               onClick={(e) => handleNavClick(e, "home")}
-              className="text-xl font-semibold text-primary transition-transform hover:scale-105"
+              className="flex items-center transition-transform hover:scale-105"
             >
-              Sahshad
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={!mounted ? "/logo_dark.svg" : theme === "dark" ? "/logo_light.svg" : "/logo_dark.svg"}
+                alt="Sahshad"
+                className="h-12 w-auto -my-2"
+              />
             </Link>
           </div>
 

@@ -2,6 +2,8 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Open_Sans } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
+// @ts-expect-error
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 
@@ -17,6 +19,14 @@ const openSans = Open_Sans({
   display: "swap",
   variable: "--font-open-sans",
   weight: ["400", "500", "600"],
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  style: ["italic"],
+  weight: ["500", "600"],
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +51,7 @@ html {
 }
         `}</style>
       </head>
-      <body className={`${montserrat.variable} ${openSans.variable} antialiased`}>
+      <body className={`${montserrat.variable} ${openSans.variable} ${playfairDisplay.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
