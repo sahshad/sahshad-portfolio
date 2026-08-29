@@ -38,7 +38,7 @@ export function ProjectsSection() {
                 Built With Purpose
               </span>
             }
-            description="A selection of products, experiments, and systems built with a focus on thoughtful design, solid engineering, and real-world usability."
+            description="A selection of applications, backend systems, and developer tools built with a focus on thoughtful design, solid engineering, scalability, and real-world usability."
           />
           <div className="text-center -mt-8 mb-8 md:mb-16">
             <RotatingText

@@ -10,4 +10,8 @@ export const contactSteps: ContactStep[] = [
   { n: "03", title: "Build", desc: "I ship working software in tight loops, so you see real progress — not just promises." },
 ];
 
-export const contactOfferings: string[] = ["SaaS & Web Apps", "APIs & Backend Systems", "Real-time Applications"];
+export const contactOfferings: string[] = [
+  "Web Applications",
+  "Backend & APIs",
+  "Real-time Systems",
+];

@@ -40,9 +40,9 @@ export function Footer() {
           <div className="hidden lg:block lg:self-center lg:text-right">
             <p className="mb-2 text-xs uppercase tracking-[0.2em] text-accent">A Simple Approach</p>
             <p className="font-serif font-black text-4xl leading-[1.05] sm:text-5xl">
-              <span className="block text-foreground/25">MAKE</span>
-              <span className="block text-foreground/25">SOMETHING</span>
-              <span className="block text-accent">USEFUL.</span>
+              <span className="block text-foreground/25">THINK</span>
+              <span className="block text-foreground/25">BUILD</span>
+              <span className="block text-accent">SCALE.</span>
             </p>
           </div>
         </div>

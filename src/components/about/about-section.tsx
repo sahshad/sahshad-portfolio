@@ -69,7 +69,7 @@ export function AboutSection() {
                   fast, reliable, and intuitive products.
                 </p>
                 <p>
-                  My core stack is React, Next.js, Node.js, TypeScript, and MongoDB. But good software isn&apos;t just about
+                  My core stack is TypeScript, Go, JavaScript, React, Next. js, Postgres and MongoDB. But good software isn&apos;t just about
                   the technology behind it. I care about thoughtful design, responsive interfaces, performance, and the
                   small details that make a product genuinely enjoyable to use.
                 </p>
@@ -297,7 +297,7 @@ export function AboutSection() {
             <Reveal delay={200}>
               <div className="rounded-3xl mt-10">
                 <p className="text-accent font-medium tracking-wide uppercase text-sm mb-6 text-center sm:text-left">TECHNOLOGY I WORK WITH</p>
-                <div className="grid grid-cols-4 py-3 sm:grid-cols-6 gap-2 max-h-[270px] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <div className="grid grid-cols-4 py-3 sm:grid-cols-6 gap-2 max-h-[360px] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {techStack.map((skill) => (
                     <div
                       key={skill.name}

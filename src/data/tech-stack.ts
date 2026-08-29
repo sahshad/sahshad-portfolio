@@ -1,28 +1,29 @@
 import {
+  Braces,
+  FileJson,
   Atom,
   Hexagon,
   Boxes,
-  FileCode2,
-  Database,
-  Palette,
-  Container,
-  Cloud,
-  Braces,
-  Zap,
-  Server,
-  Coffee,
-  FileJson,
-  CodeXml,
-  Paintbrush,
   Route,
   Bird,
-  SquareCode,
-  FileCode,
+  Network,
+  Database,
+  Zap,
+  Globe,
+  Workflow,
+  Palette,
+  CodeXml,
+  Paintbrush,
+  Server,
   Terminal,
+  Container,
+  Cloud,
+  CloudCog,
   GitBranch,
   GitPullRequest,
-  Workflow,
-  CloudCog,
+  Coffee,
+  SquareCode,
+  FileCode,
   type LucideIcon,
 } from "lucide-react";
 
@@ -32,28 +33,46 @@ export interface TechStackItem {
 }
 
 export const techStack: TechStackItem[] = [
-  { icon: Atom, name: "React" },
-  { icon: Hexagon, name: "Next.js" },
-  { icon: Boxes, name: "Node.js" },
-  { icon: FileCode2, name: "TypeScript" },
-  { icon: Database, name: "MongoDB" },
-  { icon: Palette, name: "Tailwind" },
-  { icon: Container, name: "Docker" },
-  { icon: Cloud, name: "AWS" },
+  // Languages
   { icon: Braces, name: "Go" },
-  { icon: Zap, name: "Redis" },
-  { icon: Server, name: "Postgres" },
-  { icon: Coffee, name: "Java" },
+  { icon: FileJson, name: "TypeScript" },
   { icon: FileJson, name: "JavaScript" },
-  { icon: CodeXml, name: "HTML" },
-  { icon: Paintbrush, name: "CSS" },
-  { icon: Route, name: "Express" },
-  { icon: Bird, name: "NestJS" },
+  { icon: Coffee, name: "Java" },
   { icon: SquareCode, name: "Python" },
   { icon: FileCode, name: "C" },
-  { icon: Terminal, name: "Microservices" },
-  { icon: GitBranch, name: "Git" },
-  { icon: GitPullRequest, name: "CI/CD" },
+
+  // Frontend
+  { icon: Atom, name: "React" },
+  { icon: Hexagon, name: "Next.js" },
   { icon: Workflow, name: "Redux" },
+  { icon: Palette, name: "Tailwind" },
+  { icon: Palette, name: "shadcn/ui" },
+  { icon: Globe, name: "AJAX" },
+  { icon: CodeXml, name: "HTML" },
+  { icon: Paintbrush, name: "CSS" },
+
+  // Backend
+  { icon: Boxes, name: "Node.js" },
+  { icon: Route, name: "Express" },
+  { icon: Bird, name: "NestJS" },
+  { icon: Network, name: "gRPC" },
+  { icon: Network, name: "WebSockets" },
+
+  // Databases & Caching
+  { icon: Database, name: "PostgreSQL" },
+  { icon: Database, name: "MSSQL" },
+  { icon: Database, name: "MongoDB" },
+  { icon: Zap, name: "Redis" },
+
+  // Architecture
+  { icon: Terminal, name: "Microservices" },
+
+  // DevOps & Infrastructure
+  { icon: Container, name: "Docker" },
+  { icon: Cloud, name: "AWS" },
   { icon: CloudCog, name: "Linux" },
+  { icon: GitPullRequest, name: "CI/CD" },
+
+  // Version Control
+  { icon: GitBranch, name: "Git" },
 ];

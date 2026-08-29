@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Rocket, Code2, type LucideIcon } from "lucide-react";
+import { Code2, GraduationCap, Rocket, Briefcase, type LucideIcon } from "lucide-react";
 
 export interface TimelineItem {
   icon: LucideIcon;
@@ -10,31 +10,31 @@ export interface TimelineItem {
 
 export const timeline: TimelineItem[] = [
   {
-    icon: GraduationCap,
-    title: "Computer Science Degree",
-    org: "University",
-    period: "2022 - 2025",
-    description: "Graduated with a focus on software engineering and web technologies.",
+    icon: Code2,
+    title: "Tech Journey",
+    org: "Self Learning",
+    period: "2023",
+    description: "Built a strong foundation in programming and software engineering through self-learning, hands-on development, problem solving, and continuous exploration.",
   },
   {
-    icon: Briefcase,
-    title: "Freelance Web Developer",
-    org: "Self-employed",
-    period: "2023 - Present",
-    description: "Designing and shipping full-stack applications for clients around the world.",
+    icon: GraduationCap,
+    title: "Development Program",
+    org: "Brototype",
+    period: "2023 - 2024",
+    description: "Completed an intensive software development program covering full-stack development, backend engineering, databases, and modern practices.",
   },
   {
     icon: Rocket,
-    title: "Full-Stack Certification",
-    org: "Brocamp",
-    period: "2025",
-    description: "Intensive program covering the MERN stack and modern DevOps practices.",
+    title: "Applied Engineering",
+    org: "Personal Work",
+    period: "2024 - 2025",
+    description: "Applied engineering skills by designing application architecture, developing backend systems, integrating APIs, and building responsive interfaces.",
   },
   {
-    icon: Code2,
-    title: "Open Source Contributor",
-    org: "GitHub",
-    period: "2024 - Present",
-    description: "Contributing to open-source projects and maintaining my own libraries.",
+    icon: Briefcase,
+    title: "Software Engineer",
+    org: "Jethur",
+    period: "2025 - Present",
+    description: "Developing backend systems and enterprise applications, building reliable APIs and scalable solutions with a focus on performance and maintainability.",
   },
 ];

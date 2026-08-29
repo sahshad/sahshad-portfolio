@@ -34,15 +34,15 @@ export function HeroSection() {
   }, []);
 
   return (
-      <section ref={heroRef} id="home" className="relative pt-16 md:pt-28 px-4 sm:px-6 lg:px-8 ">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
+    <section ref={heroRef} id="home" className="relative pt-16 md:pt-28 px-4 sm:px-6 lg:px-8 ">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-200">
           <p className="text-sm uppercase font-medium tracking-wide text-accent">Welcome to my portfolio</p>
 
           <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight">
             Hi, I&apos;m{" "}
             <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text animate-gradient">
-              <TypingText text={siteConfig.name}/>
+              <TypingText text={siteConfig.name} />
             </span>
           </h1>
 
@@ -51,8 +51,7 @@ export function HeroSection() {
           </h2>
 
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-            I build fast, modern, and accessible websites using React, Next.js, and TypeScript. Focused on clean code &
-            great design.
+            I build scalable, reliable, and user-focused software with a strong focus on clean architecture, performance, and thoughtful engineering.
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
@@ -64,14 +63,16 @@ export function HeroSection() {
               View My Work
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-            <a
-              href={siteConfig.cvUrl}
-              download
-              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              title="CV coming soon"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
             >
               Download CV
               <Download className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -115,26 +116,26 @@ export function HeroSection() {
       <div className="mt-5 sm:mt-10 animate-on-scroll opacity-0 transform translate-y-6 transition-all duration-1000 delay-600">
         <div className="mx-auto sm:px-12">
           <div className="relative">
-          <div className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-proximity pt-4 pb-5">
-            {heroStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="group relative overflow-hidden snap-start shrink-0 flex items-center gap-4 p-5 w-[170px] h-[75px] bg-black/2 dark:bg-white/7 backdrop-blur-3xl border border-white/10 dark:border-white/10 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),inset_0_-10px_14px_-10px_rgba(0,0,0,0.16)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.32),inset_0_-10px_14px_-10px_rgba(0,0,0,0.85)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9),inset_0_-10px_14px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),inset_0_-10px_14px_-10px_rgba(0,0,0,0.95)] hover:-translate-y-1 transition-all duration-300"
-              >
-                <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-500 ease-out group-hover:w-full" />
-                <div className="flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3">
-                  <stat.icon className={`h-6 w-6 ${stat.colorClass}`} />
-                </div>
-                <div>
-                  <div className="font-bold text-primary text-xl sm:text-2xl origin-left transition-transform duration-300 group-hover:scale-105">
-                    {stat.value}
+            <div className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-proximity pt-4 pb-5">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="group relative overflow-hidden snap-start shrink-0 flex items-center gap-4 p-5 w-[170px] h-[75px] bg-black/2 dark:bg-white/7 backdrop-blur-3xl border border-white/10 dark:border-white/10 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),inset_0_-10px_14px_-10px_rgba(0,0,0,0.16)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.32),inset_0_-10px_14px_-10px_rgba(0,0,0,0.85)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9),inset_0_-10px_14px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),inset_0_-10px_14px_-10px_rgba(0,0,0,0.95)] hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-all duration-500 ease-out group-hover:w-full" />
+                  <div className="flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3">
+                    <stat.icon className={`h-6 w-6 ${stat.colorClass}`} />
                   </div>
-                  <div className="text-xs text-muted-foreground truncate">{stat.label}</div>
+                  <div>
+                    <div className="font-bold text-primary text-xl sm:text-2xl origin-left transition-transform duration-300 group-hover:scale-105">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-muted-foreground truncate">{stat.label}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>

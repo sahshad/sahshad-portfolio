@@ -24,7 +24,7 @@ export function SkillsHighlight() {
           <p className="text-accent font-medium tracking-wide uppercase text-sm">What I Do</p>
           <h2 className="font-serif font-black text-3xl sm:text-4xl text-foreground">Skills & Expertise</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Combining technical expertise with creative vision to deliver exceptional digital solutions.
+            Combining strong engineering fundamentals with thoughtful design to build scalable, reliable, and user-focused software that delivers a seamless experience across every interaction.
           </p>
         </div>
 

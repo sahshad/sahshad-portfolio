@@ -1,9 +1,10 @@
 import {
-  Code2,
-  Folder,
+  GraduationCap,
   ShoppingBag,
   Terminal,
-  Container,
+  Network,
+  Link,
+  Film,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,61 +20,63 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    icon: Code2,
-    color: "#f97316",
-    title: "Task Manager App",
+    icon: Network,
+    color: "#a855f7",
+    title: "Cosmix",
     description:
-      "A full-stack task management application with user authentication, drag-and-drop boards, and real-time updates.",
-    technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.io"],
+      "A microservices-based social media platform with a Next.js frontend and distributed backend services communicating through gRPC.",
+    technologies: ["Go", "TypeScript", "Next.js", "gRPC", "Microservices"],
+    github: "https://github.com/sahshad",
+    live: "#",
+  },
+  {
+    icon: GraduationCap,
+    color: "#f97316",
+    title: "Tutoriam",
+    description:
+      "A full-stack e-learning platform with course management, user authentication, interactive learning features, and real-time communication.",
+    technologies: ["React", "TypeScript", "WebSocket", "Docker", "CI/CD"],
     github: "https://github.com/sahshad",
     live: "#",
   },
   {
     icon: ShoppingBag,
     color: "#3b82f6",
-    title: "E-Commerce Store",
+    title: "Shoezie",
     description:
-      "A modern online store with product catalog, cart, payment integration, and an admin dashboard built with Next.js.",
-    technologies: ["Next.js", "Redux", "Stripe", "Tailwind", "TypeScript"],
+      "A server-side rendered e-commerce platform for shoes with product management, shopping cart, AJAX interactions, and API integrations.",
+    technologies: ["Node.js", "JavaScript", "EJS", "AJAX", "REST API"],
     github: "https://github.com/sahshad",
     live: "#",
   },
+
   {
     icon: Terminal,
     color: "#22c55e",
-    title: "REST API Service",
+    title: "Go HTTP CLI",
     description:
-      "A scalable REST API with repository architecture, JWT authentication, rate limiting, and comprehensive tests.",
-    technologies: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "Jest"],
+      "A command-line HTTP client built in Go for making and managing HTTP requests through an intuitive CLI interface.",
+    technologies: ["Go", "Cobra", "HTTP"],
     github: "https://github.com/sahshad",
     live: "#",
   },
   {
-    icon: Container,
-    color: "#a855f7",
-    title: "DevOps Pipeline",
-    description:
-      "Automated CI/CD pipeline that builds, tests, and deploys containers to AWS EC2 with zero-downtime rollouts.",
-    technologies: ["Docker", "GitHub Actions", "AWS EC2", "Nginx"],
-    github: "https://github.com/sahshad",
-    live: "#",
-  },
-  {
-    icon: Folder,
+    icon: Link,
     color: "#06b6d4",
-    title: "Portfolio Website",
+    title: "SnapURL",
     description:
-      "A personal portfolio with animated UI components, dark mode, and a fully responsive layout built in Next.js.",
-    technologies: ["Next.js", "Tailwind", "Motion", "ShadCN"],
+      "A URL shortening application that generates compact, shareable links from long URLs with a simple and efficient interface.",
+    technologies: ["TypeScript", "REST API", "Database"],
     github: "https://github.com/sahshad",
-    live: "/",
+    live: "#",
   },
   {
-    icon: Code2,
+    icon: Film,
     color: "#ef4444",
-    title: "Chat Application",
-    description: "A real-time chat application with rooms, direct messages, typing indicators, and message history.",
-    technologies: ["React", "Socket.io", "Node.js", "MongoDB"],
+    title: "FilmSpot",
+    description:
+      "A movie discovery application that retrieves and displays movie information using the OMDb API.",
+    technologies: ["React", "OMDb API", "REST API"],
     github: "https://github.com/sahshad",
     live: "#",
   },
