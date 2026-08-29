@@ -1,5 +1,3 @@
-// Single source of truth for personal/profile info reused across the site
-// (hero, about, contact, footer, page metadata). Edit here, it updates everywhere.
 export const siteConfig = {
   name: "Muhammed Sahshad",
   role: "Full-Stack Developer",

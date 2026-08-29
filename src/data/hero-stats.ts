@@ -7,7 +7,6 @@ export interface HeroStat {
   colorClass: string;
 }
 
-// Edit this list to change the stat cards under the hero section.
 export const heroStats: HeroStat[] = [
   { label: "Projects", value: "15+", icon: Rocket, colorClass: "text-primary" },
   { label: "Coding Experience", value: "1+", icon: Code, colorClass: "text-green-500" },

@@ -7,7 +7,6 @@ export interface ApproachStep {
   description: string;
 }
 
-// Edit this list to change the "My Approach" terminal steps in the About section.
 export const approach: ApproachStep[] = [
   {
     step: "01",

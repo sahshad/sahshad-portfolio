@@ -7,7 +7,6 @@ export interface SocialLink {
   label: string;
 }
 
-// Edit this list to change the social links in the footer.
 export const socials: SocialLink[] = [
   { href: "https://github.com/sahshad", icon: Github, label: "GitHub" },
   { href: "https://linkedin.com/in/sahshad", icon: Linkedin, label: "LinkedIn" },

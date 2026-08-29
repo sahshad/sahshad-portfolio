@@ -9,7 +9,6 @@ export interface SkillHighlight {
   featured?: boolean;
 }
 
-// Edit this list to change what shows up in the "Skills & Expertise" section.
 export const skills: SkillHighlight[] = [
   {
     icon: Code,

@@ -82,6 +82,7 @@ type StarsBackgroundProps = React.ComponentProps<'div'> & {
 function StarsBackground({
   children,
   className,
+  style,
   factor = 0.05,
   speed = 50,
   transition = { stiffness: 50, damping: 20 },
@@ -114,6 +115,7 @@ function StarsBackground({
         'relative size-full overflow-clip bg-[radial-gradient(ellipse_at_bottom,_#000_0%,_#000_100%)]',
         className,
       )}
+      style={{ pointerEvents: pointerEvents ? 'auto' : 'none', ...style }}
       onMouseMove={handleMouseMove}
       {...props}
     >

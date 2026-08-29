@@ -164,9 +164,6 @@ export function AboutSection() {
                 <p className="text-accent font-medium tracking-wide uppercase text-sm mb-6 text-center sm:text-left">
                   My Approach
                 </p>
-                {/* <p className="text-xs text-muted-foreground mb-6 text-center sm:text-left">
-                  How I turn ideas into reliable products.
-                </p> */}
 
                 <div className="relative rounded-xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/25 ring-1 ring-black/5 overflow-hidden font-mono">
                   {/* CRT scanline texture */}

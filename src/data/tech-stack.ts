@@ -31,7 +31,6 @@ export interface TechStackItem {
   name: string;
 }
 
-// Edit this list to change the "Technology I Work With" grid in the About section.
 export const techStack: TechStackItem[] = [
   { icon: Atom, name: "React" },
   { icon: Hexagon, name: "Next.js" },

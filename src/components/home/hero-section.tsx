@@ -64,14 +64,6 @@ export function HeroSection() {
               View My Work
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-            {/* <a
-              href="#contact"
-              onClick={(e) => handleScroll(e, "contact")}
-              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-            >
-              Get In Touch
-              <Mail className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-            </a> */}
             <a
               href={siteConfig.cvUrl}
               download

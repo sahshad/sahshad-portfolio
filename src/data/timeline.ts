@@ -8,7 +8,6 @@ export interface TimelineItem {
   description: string;
 }
 
-// Edit this list to change the "My Journey" timeline in the About section.
 export const timeline: TimelineItem[] = [
   {
     icon: GraduationCap,

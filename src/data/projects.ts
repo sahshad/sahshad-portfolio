@@ -17,7 +17,6 @@ export interface Project {
   live: string;
 }
 
-// Edit this list to change what shows up in the Projects section.
 export const projects: Project[] = [
   {
     icon: Code2,

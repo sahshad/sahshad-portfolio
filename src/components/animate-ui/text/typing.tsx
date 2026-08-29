@@ -71,6 +71,8 @@ function TypingText({
   const [started, setStarted] = React.useState(false);
   const [displayedText, setDisplayedText] = React.useState<string>('');
 
+  const changeKey = animateOnChange ? text : null;
+
   React.useEffect(() => {
     // Reset animation when text changes (if animateOnChange is true)
     if (animateOnChange) {
@@ -89,7 +91,7 @@ function TypingText({
       }, delay);
       return () => clearTimeout(timeoutId);
     }
-  }, [isInView, delay, ...(animateOnChange ? [text] : [])]);
+  }, [isInView, delay, animateOnChange, changeKey]);
 
   React.useEffect(() => {
     if (!started) return;

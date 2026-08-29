@@ -46,18 +46,6 @@ export function Footer() {
             </p>
           </div>
         </div>
-
-        {/* Bottom row */}
-        {/* <div className="mt-5 flex flex-col gap-2 border-t border-border/60 pt-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p className="inline-flex items-center gap-1.5">
-            <MapPin className="h-4 w-4 text-primary" />
-            Kerala, India
-          </p>
-          <p className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-            Available for opportunities
-          </p>
-        </div> */}
       </div>
     </footer>
   );
