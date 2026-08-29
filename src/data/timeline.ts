@@ -20,14 +20,14 @@ export const timeline: TimelineItem[] = [
     icon: GraduationCap,
     title: "Development Program",
     org: "Brototype",
-    period: "2023 - 2024",
+    period: "2024 - 2025",
     description: "Completed an intensive software development program covering full-stack development, backend engineering, databases, and modern practices.",
   },
   {
     icon: Rocket,
     title: "Applied Engineering",
     org: "Personal Work",
-    period: "2024 - 2025",
+    period: "2024 - Present",
     description: "Applied engineering skills by designing application architecture, developing backend systems, integrating APIs, and building responsive interfaces.",
   },
   {

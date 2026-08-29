@@ -30,8 +30,8 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: `Portfolio - ${siteConfig.name}`,
-  description: "Modern, personal portfolio showcasing skills and projects",
+  title: "Sahshad | Software Engineer",
+  description: "Software Engineer focused on building thoughtful, reliable, and modern software.",
 };
 
 export default function RootLayout({
