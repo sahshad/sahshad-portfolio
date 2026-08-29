@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Open_Sans } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
-// @ts-expect-error -- CSS side-effect import has no type declarations, but Next.js handles it at build time
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { siteConfig } from "@/data/site-config";
