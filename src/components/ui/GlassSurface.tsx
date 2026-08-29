@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useId } from 'react';
-//@ts-expect-error
+//@ts-expect-error -- CSS side-effect import has no type declarations, but Next.js handles it at build time
 import './GlassSurface.css';
 
 export interface GlassSurfaceProps {
