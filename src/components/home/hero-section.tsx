@@ -63,7 +63,7 @@ export function HeroSection() {
               onClick={(e) => handleScroll(e, "projects")}
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
-              View My Work
+              Explore My Work
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <button
@@ -80,7 +80,7 @@ export function HeroSection() {
               }
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
             >
-              Download Resume
+              View Resume
               <Download className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
             </button>
           </div>
