@@ -26,7 +26,7 @@ export const projects: Project[] = [
     description:
       "A microservices-based social media platform with a Next.js frontend and distributed backend services communicating through gRPC.",
     technologies: ["Go", "TypeScript", "Next.js", "gRPC", "Microservices"],
-    github: "https://github.com/sahshad",
+    github: "https://github.com/sahshad/cosmix-api",
     live: "#",
   },
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     description:
       "A full-stack e-learning platform with course management, user authentication, interactive learning features, and real-time communication.",
     technologies: ["React", "TypeScript", "WebSocket", "Docker", "CI/CD"],
-    github: "https://github.com/sahshad",
+    github: "https://github.com/sahshad/tutoriam",
     live: "#",
   },
   {
@@ -46,18 +46,18 @@ export const projects: Project[] = [
     description:
       "A server-side rendered e-commerce platform for shoes with product management, shopping cart, AJAX interactions, and API integrations.",
     technologies: ["Node.js", "JavaScript", "EJS", "AJAX", "REST API"],
-    github: "https://github.com/sahshad",
+    github: "https://github.com/sahshad/shoezie",
     live: "#",
   },
 
   {
     icon: Terminal,
     color: "#22c55e",
-    title: "Go HTTP CLI",
+    title: "APIX",
     description:
       "A command-line HTTP client built in Go for making and managing HTTP requests through an intuitive CLI interface.",
     technologies: ["Go", "Cobra", "HTTP"],
-    github: "https://github.com/sahshad",
+    github: "https://github.com/sahshad/apix",
     live: "#",
   },
   {
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     description:
       "A URL shortening application that generates compact, shareable links from long URLs with a simple and efficient interface.",
     technologies: ["TypeScript", "REST API", "Database"],
-    github: "https://github.com/sahshad",
+    github: "https://github.com/sahshad/snapurl",
     live: "#",
   },
   {
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     description:
       "A movie discovery application that retrieves and displays movie information using the OMDb API.",
     technologies: ["React", "OMDb API", "REST API"],
-    github: "https://github.com/sahshad",
+    github: "https://github.com/sahshad/filmspot",
     live: "#",
   },
 ];

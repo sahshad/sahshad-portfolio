@@ -1,12 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { BorderGlow } from "@/components/ui/border-glow";
 import { RotatingText } from "@/components/animate-ui/text/rotating";
-import { ExternalLink, Github } from "lucide-react";
+import { CustomToast } from "@/components/ui/toast";
+import { toast } from "sonner";
 import { projects } from "@/data/projects";
 
 export function ProjectsSection() {
@@ -81,6 +83,17 @@ export function ProjectsSection() {
                         rel="noopener noreferrer"
                         aria-label={`${project.title} live demo`}
                         className="w-9 h-9 rounded-full bg-black/2 dark:bg-white/7 border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-105 transition-all duration-300"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            toast.custom((id) => (
+                              <CustomToast
+                                title="Coming Soon"
+                                description="Live demo isn't available yet. Stay tuned!"
+                                icon={<ExternalLink className="h-5 w-5 text-primary" />}
+                                close={() => toast.dismiss(id)}
+                              />
+                            ));
+                          }}
                       >
                         <ExternalLink className="h-4 w-4" />
                       </a>

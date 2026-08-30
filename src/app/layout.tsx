@@ -4,8 +4,8 @@ import { Montserrat } from "next/font/google";
 import { Open_Sans } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { siteConfig } from "@/data/site-config";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -55,6 +55,15 @@ html {
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            classNames: {
+              toast: "bg-muted/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl shadow-black/30",
+            },
+            duration: 3000,
+          }}
+        />
       </body>
     </html>
   );

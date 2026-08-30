@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, type MouseEvent } from "react";
 import { ArrowRight, Download } from "lucide-react";
+import { toast } from "sonner";
+import { CustomToast } from "@/components/ui/toast";
+import { FileText } from "lucide-react";
 import { TypingText } from "../animate-ui/text/typing";
 import Image from "next/image";
 import { heroStats } from "@/data/hero-stats";
@@ -65,12 +68,19 @@ export function HeroSection() {
             </a>
             <button
               type="button"
-              disabled
-              aria-disabled="true"
-              title="CV coming soon"
+              onClick={() =>
+                toast.custom((id) => (
+                  <CustomToast
+                    title="Resume Coming Soon"
+                    description="Resume currently unavailable. Check back soon!"
+                    icon={<FileText className="h-5 w-5 text-primary" />}
+                    close={() => toast.dismiss(id)}
+                  />
+                ))
+              }
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
             >
-              Download CV
+              Download Resume
               <Download className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
             </button>
           </div>
