@@ -9,7 +9,7 @@ export interface SocialLink {
 
 export const socials: SocialLink[] = [
   { href: "https://github.com/sahshad", icon: Github, label: "GitHub" },
-  { href: "https://www.linkedin.com/in/muhammed-sahshad-702379275", icon: Linkedin, label: "LinkedIn" },
+  { href: "https://www.linkedin.com/in/muhammed-sahshad", icon: Linkedin, label: "LinkedIn" },
   { href: "", icon: Twitter, label: "X" },
   { href: `mailto:${siteConfig.email}`, icon: Mail, label: "Email" },
 ];
